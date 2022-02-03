@@ -1,0 +1,62 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+  <ng-container matColumnDef="tipoEvento">
+    <th mat-header-cell *matHeaderCellDef> Evento </th>
+    <td mat-cell *matCellDef="let cotizacion"> {{cotizacion.tipoEvento}} </td>
+  </ng-container>
+  <!-- Position Column -->
+  <ng-container matColumnDef="lugaEvento">
+    <th mat-header-cell *matHeaderCellDef> Lugar </th>
+    <td mat-cell *matCellDef="let cotizacion"> {{cotizacion.lugaEvento}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="fechaEvento">
+    <th mat-header-cell *matHeaderCellDef> Fecha del evento </th>
+    <td mat-cell *matCellDef="let cotizacion"> {{cotizacion.fechaEvento}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="numPersonas">
+    <th mat-header-cell *matHeaderCellDef> Num Personas </th>
+    <td mat-cell *matCellDef="let cotizacion"> {{cotizacion.numPersonas}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="nombre">
+    <th mat-header-cell *matHeaderCellDef> Nombre </th>
+    <td mat-cell *matCellDef="let cotizacion"> {{cotizacion.nombre}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="telefono">
+    <th mat-header-cell *matHeaderCellDef> Telefono </th>
+    <td mat-cell *matCellDef="let cotizacion"> {{cotizacion.telefono}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="correo">
+    <th mat-header-cell *matHeaderCellDef> Correo </th>
+    <td mat-cell *matCellDef="let cotizacion"> {{cotizacion.correo}} </td>
+  </ng-container>
+  <ng-container matColumnDef="cuidad">
+    <th mat-header-cell *matHeaderCellDef> Cuidad </th>
+    <td mat-cell *matCellDef="let cotizacion"> {{cotizacion.cuidad}} </td>
+  </ng-container>
+  <ng-container matColumnDef="mensaje">
+    <th mat-header-cell *matHeaderCellDef> Mensaje </th>
+    <td mat-cell *matCellDef="let cotizacion"> {{cotizacion.mensaje}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="acciones">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Acciones</th>
+    <td mat-cell *matCellDef="let cotizacion">
+      <button class="boton editar" type="button" [routerLink]="['/editar-cotizacion', cotizacion.id]">Editar</button>
+      <button class="boton eliminar" type="button" (click)="deleteCoti(cotizacion.id)">Eliminar</button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

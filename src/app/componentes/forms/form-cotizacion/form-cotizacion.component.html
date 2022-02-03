@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cotizador</title>
+</head>
+
+<body>
+    <div class="contenedor">
+        <div class="formulario" layout="row">
+            <form #formCotizador="ngForm" (ngSubmit)="enviarForm(formCotizador)">
+
+                <div>
+                    <mat-form-field appearance="fill">
+                        <mat-label>TIPO DE EVENTO</mat-label>
+                        <mat-select [(ngModel)]= "tipoEventoForm" name="tipoEvento">
+                            <mat-option *ngFor="let evento of eventos" [value]="evento.value">
+                                {{evento.viewValue}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    
+                </div>
+
+                <div>
+                    <mat-form-field appearance="fill">
+                        <mat-label>LUGAR DE EVENTO</mat-label>
+                        <mat-select [(ngModel)]= "lugarEventoForm" name="lugaEvento">
+                            <mat-option *ngFor="let lugar of lugares" [value]="lugar.value">
+                                {{lugar.viewValue}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <div>
+                    <mat-form-field appearance="fill">
+                        <mat-label>FECHA DEL EVENTO</mat-label>
+                        <input matInput [matDatepicker]="picker" id="fechaEvento" name="fechaEvento" required [(ngModel)]="fechaEventoForm">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                      </mat-form-field>
+                    
+                    <!-- <input id="fechaEvento" type="text" name="fechaEvento" required [(ngModel)]="fechaEventoForm"> -->
+                </div>
+                <br>
+                <div>
+                    <label for="numPersonas">NUMERO DE PERSONAS</label>
+                    <input id="numPersonas" type="number" name="numPersonas" required [(ngModel)]="numPersonasForm">
+                </div>
+                <br>
+                <div>
+                    <label for="nombre">NOMBRE</label>
+                    <input id="nombre" type="text" name="nombre" required [(ngModel)]="nombreForm">
+                </div>
+                <br>
+                <div>
+                    <label for="telefono">TELÉFONO</label>
+                    <input id="telefono" type="text" name="telefono" required [(ngModel)]="telefonoForm">
+                </div>
+                <br>
+                <div>
+                    <label for="correo">CORREO</label>
+                    <input id="correo" type="email" name="correo" required [(ngModel)]="correoForm">
+                </div>
+                <br>
+                <div>
+                    <label for="cuidad">CUIDAD</label>
+                    <input id="cuidad" type="text" name="cuidad" required [(ngModel)]="cuidadForm">
+                </div>
+                <br>
+                <div>
+                    <label for="mensaje">MENSAJE</label>
+                    <textarea id="mensaje" type="text" name="mensaje" required [(ngModel)]="mensajeForm"
+                        placeholder="Mensaje"></textarea>
+                </div>
+
+                <button class="boton eliminar" type="reset">Cancelar</button>
+            <button class="boton" type="submit" [disabled]="!formCotizador.form.valid">Aceptar</button>
+       
+            </form>
+        </div>
+
+    </div>
+</body>
+
+</html>
