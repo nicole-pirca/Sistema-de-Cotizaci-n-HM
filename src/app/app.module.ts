@@ -23,6 +23,9 @@ import { HeaderComponent } from './componentes/header/header.component';
 import { MenuComponent } from './componentes/menu/menu.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { FormUserComponent } from './componentes/forms/form-user/form-user.component';
+import { RutaCrearUserComponent } from './rutas/rutas-administracion/rutas-user/ruta-crear-user/ruta-crear-user.component';
+import { UserService } from './servicios/user.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +35,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     RutaEditarCotizacionComponent,
     HeaderComponent,
     MenuComponent,
+    FormUserComponent,
+    RutaCrearUserComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,7 +54,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     MatTabsModule,
     MatToolbarModule,
   ],
-  providers: [CotizadorService,],
+  providers: [CotizadorService, UserService,],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -20,4 +20,8 @@ export class MenuComponent implements OnInit {
     const ruta = ['/listar-cotizacion'];
     this._router.navigate(ruta);
   }
+  RegistroUser(){
+    const ruta = ['/crear-user'];
+    this._router.navigate(ruta);
+  }
 }
